@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WidgetTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if signed_in? %>
+      <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
+      <%= link_to 'Profile', user_path(id: current_user.remote_id), class: 'btn btn-primary' %>
+      <%= link_to 'My Widgets', widgets_users_path, class: 'btn btn-success' %>
+      <%= link_to 'Sign Out', logout_users_path, method: :post, class: 'btn btn-danger' %>
+    <% else %>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#signIn">Sign In</button>
+      <button class="btn btn-info" data-toggle="modal" data-target="#signUp">Sign Up</button>
+      <button class="btn btn-info reset-password">Reset Password</button>
+    <% end %>
+    </br>
+    </br>
+    <div class="alert-success alert-box" role="alert"></div>
+    <%= yield %>
+    <% unless current_user %>
+      <%= render 'users/sign_in' %>
+      <%= render 'users/sign_up' %>
+      <%= render 'users/reset_password' %>
+    <% end %>
+  </body>
+</html>

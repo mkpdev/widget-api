@@ -1,0 +1,23 @@
+<div class="table-responsive">
+  <table class="table widgets">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Kind</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @widgets.each do |w| %>
+      <tr>
+        <td><%= w["name"] %></td>
+        <td><%= w["description"] %></td>
+        <td><%= w['kind'] %></td>
+        <td><%= link_to 'View', show_widget_users_path(id: w['id']) %></br><%= link_to 'Edit', edit_widget_users_path(id: w['id']), remote: :true %></td>
+        <td></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

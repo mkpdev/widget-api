@@ -1,0 +1,16 @@
+common: &common_data
+  adapter: postgresql
+
+development:
+  adapter: postgresql
+  <<: *common_data
+  database: widgetapi
+
+test:
+  adapter: postgresql
+  <<: *common_data
+  database: widgetapitest 
+
+production:
+  <<: *common_data
+  prepared_statements: false

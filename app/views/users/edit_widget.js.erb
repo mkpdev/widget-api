@@ -1,0 +1,7 @@
+$('#newWidgetForm').attr('action','<%= update_widget_users_path %>');
+$('#newWidgetForm #widget_id').val('<%= @widget["id"] %>');
+$('#newWidgetForm #name').val('<%= @widget["name"] %>');
+$('#newWidgetForm #description').val('<%= @widget["description"] %>');
+var public = '<%= @widget["kind"] == "visible" %>';
+$('#newWidgetForm #public').prop('checked', public == 'false' ? false : true);
+$('#newWidget').modal('show');

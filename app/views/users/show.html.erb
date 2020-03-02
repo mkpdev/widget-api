@@ -1,0 +1,14 @@
+<div class="profile">
+	<div><button class='btn btn-info edit-profile'>Edit Profile</button></div>
+  <div>
+    <img src='<%=@user["images"]["small_url"]%>'>
+  </div>
+  <div class="username">First Name: <%= @user['first_name'] %></div>
+  <div class="username">Last Name: <%= @user['last_name'] %></div>
+  <% if current_user.remote_id == @user['id'] %>
+    <div>DOB: <%= dob(@user['date_of_birth']) %></div>
+  <% end %>
+</div>
+<% if current_user.remote_id == @user['id'] %>
+  <%= render 'profile_form', user: @user %>
+<% end %>

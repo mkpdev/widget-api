@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <%=form_tag search_widgets_users_path, method: :get, id: 'searchForm' do %>
+    <input type="text" name="term">
+    <button class="btn btn-success" type="submit">Submit</button>
+  <% end %>
+  <table class="table widgets">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @widgets.each do |w| %>
+      <tr>
+        <td><%= w["name"] %></td>
+        <td><%= w["description"] %></td>
+        <td>
+          <% if current_user %>
+            <%= link_to w['user']['name'], user_path(id: w['user']['id']) %>
+          <% else %>
+            <%= w['user']['name'] %>
+          <% end %>  
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

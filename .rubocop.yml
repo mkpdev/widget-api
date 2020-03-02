@@ -1,0 +1,64 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'bin/**/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'config/**/*'
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  Enabled: true
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+  Enabled: true
+
+# Prefer :sym => value syntax
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+  Enabled: true
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/NumericLiterals:
+  MinDigits: 8
+
+Style/Lambda:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/AbcSize:
+  Max: 25
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 25
+  Enabled: false
+
+Layout/LineLength:
+  Max: 140
